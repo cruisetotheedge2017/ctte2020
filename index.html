@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<HEAD>
+<meta charset="utf-8">
+
+
+<TITLE></TITLE>
+
+<script>
+
+function displayTime() {
+var d = new Date();
+var n = d.getTime();
+
+
+var ctte = new Date();
+ctte.setYear(2020);
+ctte.setDate(27);
+ctte.setMonth(2);
+ctte.setHours(16);
+ctte.setMinutes(0);
+ctte.setSeconds(0);
+ctteMilis = ctte.getTime() - n;
+ctteSeconds = ctteMilis/1000;
+
+
+ctteMinutes = ctteSeconds/60;
+ctteHours = ctteMinutes/60;
+days = Math.floor(ctteHours/24);
+hours = Math.floor((ctteHours - (days * 24))) ;
+minutes = Math.floor(ctteMinutes % 60);
+seconds = Math.floor(ctteSeconds % 60);
+daysDisplay = days>0 ? "Days: "+ days : "";
+hoursDisplay= hours > 0 ? "Hours: "+hours : "";
+minutesDisplay= minutes > 0 ? "Minutes: "+minutes : "";
+secondsDisplay= seconds > 0 ? "Seconds: "+seconds : "";
+
+setTimeout("displayTime()",1000);
+if(document.getElementById("daysDisplay") !=null ) {
+
+document.getElementById("daysDisplay").innerHTML = daysDisplay;
+document.getElementById("hoursDisplay").innerHTML = hoursDisplay;
+document.getElementById("minutesDisplay").innerHTML = minutesDisplay;
+document.getElementById("secondsDisplay").innerHTML = secondsDisplay;
+
+
+	}
+}
+displayTime();
+
+
+
+</script>
+<style>
+table{
+	font-size: 40px;
+	font-weight:bold;
+	font-family: sans-serif;
+	color:red;
+	background-image:url("ctte_header.png");
+	background-repeat: no-repeat;
+}
+</style>
+</HEAD>
+<BODY>
+<table borders=0 cellpadding=20 width=1119 height=408>
+<tr><td height=300> &nbsp;</td></tr>
+<tr><td><div id="daysDisplay"></div></td><td><div id="hoursDisplay"></div></td>
+<td><div id="minutesDisplay"></div></td><td><div id="secondsDisplay"></div></td>
+<tr>
+</table>
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+</BODY>
+
